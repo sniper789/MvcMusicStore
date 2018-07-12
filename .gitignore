@@ -43,3 +43,6 @@ Thumbs.db
 /MvcMusicStore/MvcMusicStore/Debug/*
 /MvcMusicStore/MvcMusicStore/obj/*
 /MvcMusicStore/packages/*
+/MvcMusicStore/bin
+/packages
+/MvcMusicStore/obj/Debug
