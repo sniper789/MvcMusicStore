@@ -38,10 +38,8 @@ Thumbs.db
 # VS #
 ######
 *.user
-/.vs/*.*
-/MvcMusicStore/MvcMusicStore/bin/*.*
-/MvcMusicStore/MvcMusicStore/Debug/*.*
-/.vs
-/MvcMusicStore/MvcMusicStore/bin/roslyn
-/MvcMusicStore/MvcMusicStore/obj/Debug
-/MvcMusicStore/packages/*.*
+/.vs/*
+/MvcMusicStore/MvcMusicStore/bin/*
+/MvcMusicStore/MvcMusicStore/Debug/*
+/MvcMusicStore/MvcMusicStore/obj/*
+/MvcMusicStore/packages/*
