@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Projets\MVC\MvcMusicStore\MvcMusicStore\Models\MvcMusicStore.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Projets\MvcMusicStore\MvcMusicStore\Models\MvcMusicStore.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
