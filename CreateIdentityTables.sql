@@ -1,5 +1,5 @@
--- AspNetUsers
-CREATE TABLE [dbo].[AspNetUsers] (
+-- Users
+CREATE TABLE [dbo].[Users] (
     [Id]                   NVARCHAR (128) NOT NULL,
     [Email]                NVARCHAR (256) NULL,
     [EmailConfirmed]       BIT            NOT NULL,
@@ -12,65 +12,65 @@ CREATE TABLE [dbo].[AspNetUsers] (
     [LockoutEnabled]       BIT            NOT NULL,
     [AccessFailedCount]    INT            NOT NULL,
     [UserName]             NVARCHAR (256) NOT NULL,
-    CONSTRAINT [PK_dbo.AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.Users] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
--- AspNetRoles
-CREATE TABLE [dbo].[AspNetRoles] (
+-- Roles
+CREATE TABLE [dbo].[Roles] (
     [Id]   NVARCHAR (128) NOT NULL,
     [Name] NVARCHAR (256) NOT NULL,
-    CONSTRAINT [PK_dbo.AspNetRoles] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.Roles] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
 GO
 CREATE UNIQUE NONCLUSTERED INDEX [UserNameIndex]
-    ON [dbo].[AspNetUsers]([UserName] ASC);
+    ON [dbo].[Users]([UserName] ASC);
 
---	AspNetUserRoles
-CREATE TABLE [dbo].[AspNetUserRoles] (
+--	UserRoles
+CREATE TABLE [dbo].[UserRoles] (
     [UserId] NVARCHAR (128) NOT NULL,
     [RoleId] NVARCHAR (128) NOT NULL,
-    CONSTRAINT [PK_dbo.AspNetUserRoles] PRIMARY KEY CLUSTERED ([UserId] ASC, [RoleId] ASC),
-    CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[AspNetRoles] ([Id]) ON DELETE CASCADE,
-    CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_dbo.UserRoles] PRIMARY KEY CLUSTERED ([UserId] ASC, [RoleId] ASC),
+    CONSTRAINT [FK_dbo.UserRoles_dbo.Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[Roles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_dbo.UserRoles_dbo.Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([Id]) ON DELETE CASCADE
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [IX_UserId]
-    ON [dbo].[AspNetUserRoles]([UserId] ASC);
+    ON [dbo].[UserRoles]([UserId] ASC);
 
 
 GO
 CREATE NONCLUSTERED INDEX [IX_RoleId]
-    ON [dbo].[AspNetUserRoles]([RoleId] ASC);
+    ON [dbo].[UserRoles]([RoleId] ASC);
 
--- AspNetUserLogins
-CREATE TABLE [dbo].[AspNetUserLogins] (
+-- UserLogins
+CREATE TABLE [dbo].[UserLogins] (
     [LoginProvider] NVARCHAR (128) NOT NULL,
     [ProviderKey]   NVARCHAR (128) NOT NULL,
     [UserId]        NVARCHAR (128) NOT NULL,
-    CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED ([LoginProvider] ASC, [ProviderKey] ASC, [UserId] ASC),
-    CONSTRAINT [FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_dbo.UserLogins] PRIMARY KEY CLUSTERED ([LoginProvider] ASC, [ProviderKey] ASC, [UserId] ASC),
+    CONSTRAINT [FK_dbo.UserLogins_dbo.Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([Id]) ON DELETE CASCADE
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [IX_UserId]
-    ON [dbo].[AspNetUserLogins]([UserId] ASC);
+    ON [dbo].[UserLogins]([UserId] ASC);
 
--- AspNetUserClaims
-CREATE TABLE [dbo].[AspNetUserClaims] (
+-- UserClaims
+CREATE TABLE [dbo].[UserClaims] (
     [Id]         INT            IDENTITY (1, 1) NOT NULL,
     [UserId]     NVARCHAR (128) NOT NULL,
     [ClaimType]  NVARCHAR (MAX) NULL,
     [ClaimValue] NVARCHAR (MAX) NULL,
-    CONSTRAINT [PK_dbo.AspNetUserClaims] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_dbo.UserClaims] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_dbo.UserClaims_dbo.Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([Id]) ON DELETE CASCADE
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [IX_UserId]
-    ON [dbo].[AspNetUserClaims]([UserId] ASC);
+    ON [dbo].[UserClaims]([UserId] ASC);
 

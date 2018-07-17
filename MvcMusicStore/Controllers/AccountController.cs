@@ -181,7 +181,7 @@ namespace MvcMusicStore.Controllers
             {
                 return View("Error");
             }
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
+            var result = await UserManager.ConfirmEmailAsync(int.Parse(userId), code);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 

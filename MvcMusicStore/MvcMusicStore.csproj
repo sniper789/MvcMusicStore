@@ -241,6 +241,18 @@
     <Compile Include="Models\OrderDetail.cs">
       <DependentUpon>MvcMusicStore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>MvcMusicStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>MvcMusicStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserClaim.cs">
+      <DependentUpon>MvcMusicStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogin.cs">
+      <DependentUpon>MvcMusicStore.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

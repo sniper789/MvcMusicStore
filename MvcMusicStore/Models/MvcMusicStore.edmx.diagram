@@ -16,6 +16,13 @@
         <AssociationConnector Association="MvcMusicStoreModel.FK_Cart_Album" ManuallyRouted="false" />
         <AssociationConnector Association="MvcMusicStoreModel.FK_InvoiceLine_Album" ManuallyRouted="false" />
         <AssociationConnector Association="MvcMusicStoreModel.FK__InvoiceLi__Invoi__2F10007B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.Role" Width="1.5" PointX="7.375" PointY="2.5" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.UserClaim" Width="1.5" PointX="11.875" PointY="3.625" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.UserLogin" Width="1.5" PointX="11.875" PointY="1" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.User" Width="1.5" PointX="9.625" PointY="1.375" />
+        <AssociationConnector Association="MvcMusicStoreModel.FK_dbo_UserClaims_dbo_Users_UserId" />
+        <AssociationConnector Association="MvcMusicStoreModel.FK_dbo_UserLogins_dbo_Users_UserId" />
+        <AssociationConnector Association="MvcMusicStoreModel.UserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
